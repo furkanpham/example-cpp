@@ -1,0 +1,13 @@
+name: clang-format
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Analyse code for formatting issues using clang-format
+        run: |
+          clang-format -n -- $(git ls-files '*.cpp' '*.h')
