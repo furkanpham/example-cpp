@@ -1,6 +1,6 @@
 # CPP Plant waterer
 
-Demo project for CPP CI/CD example. Source files can be found in `./src`.
+Demo project for CPP CI/CD example. Source files can be found in `./src`
 
 - Unit tests with [Google test](https://google.github.io/googletest/)
   - Can be configured using CMake
