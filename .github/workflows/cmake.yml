@@ -8,7 +8,7 @@ on:
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
-  BUILD_TYPE: Release
+  BUILD_TYPE: Debug
 
 jobs:
   build:
@@ -33,5 +33,13 @@ jobs:
       working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ctest -C ${{env.BUILD_TYPE}} --test-dir ${{github.workspace}}/build
+      run: ctest -C ${{env.BUILD_TYPE}}
       
+    - name: Doxygen Action
+      uses: mattnotmitt/doxygen-action@1.9.1
+
+    - name: Upload an Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+          name: plant-waterer
+          path: ${{github.workspace}}/build/app/cpp-plant-waterer
